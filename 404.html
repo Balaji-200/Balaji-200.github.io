@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page not found — Minakshee Narayankar</title>
+  <title>Page not found - Minakshee Narayankar</title>
   <meta name="robots" content="noindex">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -14,23 +14,48 @@
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css">
   <style>
-    .nf { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; gap: 28px; padding-block: 64px; }
-    .nf > * { grid-column: 1; }
-    .nf-code { font: 300 clamp(6rem, 22vw, 16rem)/.85 var(--serif); letter-spacing: -0.06em; }
-    .nf-code em { color: var(--accent); font-style: italic; }
-    .nf p { max-width: 44ch; font-size: 1.125rem; color: var(--ink-soft); }
+    @font-face {
+      font-family: "Geist";
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url("/assets/fonts/geist-latin-wght.woff2") format("woff2");
+    }
+    :root { color-scheme: light; --bg: #F7F7F8; --ink: #18181B; --mut: #52525B; --line: #8A8A94; --acc: #1B6F63; --on-acc: #FFFFFF; --r: 6px; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { color-scheme: dark; --bg: #0E0E10; --ink: #EDEDEF; --mut: #A1A1AA; --line: #6E6E79; --acc: #5DBFAE; --on-acc: #0E0E10; }
+    }
+    :root[data-theme="dark"] { color-scheme: dark; --bg: #0E0E10; --ink: #EDEDEF; --mut: #A1A1AA; --line: #6E6E79; --acc: #5DBFAE; --on-acc: #0E0E10; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 32px 24px;
+      background: var(--bg); color: var(--ink);
+      font-family: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65; -webkit-font-smoothing: antialiased;
+    }
+    main { width: 100%; max-width: 32rem; }
+    .code { font-size: .875rem; font-weight: 600; color: var(--acc); margin: 0 0 8px; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.12; }
+    p { margin: 16px 0 0; color: var(--mut); font-size: 1.125rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 12px 18px;
+      background: var(--acc); color: var(--on-acc); border-radius: var(--r);
+      font-weight: 600; text-decoration: none; transition: transform .1s ease;
+    }
+    .btn:hover { filter: brightness(.92); }
+    .btn:active { transform: translateY(1px); }
+    .btn:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+    .icon { width: 18px; height: 18px; fill: currentColor; }
   </style>
 </head>
 <body>
-  <main class="wrap nf">
-    <p class="section-num"><span>404</span> Not found</p>
-    <h1 class="nf-code">4<em>0</em>4</h1>
+  <main>
+    <p class="code">404</p>
+    <h1>Not found</h1>
     <p>This page doesn’t exist, or has moved. The rest of the portfolio is one click away.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/">Back to the portfolio <span class="arrow" aria-hidden="true">→</span></a>
-    </div>
+    <a class="btn" href="/">Back to the portfolio <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
   </main>
 </body>
 </html>
